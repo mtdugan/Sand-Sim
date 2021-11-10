@@ -5,7 +5,6 @@
 #ifndef SOLID_H
 #define SOLID_H
 
-
 class Solid: public Cell {    
     public:
         Solid();
@@ -17,23 +16,17 @@ class Solid: public Cell {
 
 };
 
-Solid::Solid() {
-
-}
-
-int Solid::get_inertia() {
-    return inertia;
-}
-void Solid::set_inertia(int value) {
-    inertia = value;
-}
+Solid::Solid() {}
+int Solid::get_inertia() {return inertia;}
+void Solid::set_inertia(int value) {inertia = value;}
 
 void Solid::update_cell_position(Cell* old_world[][WORLD_HEIGHT], Cell* new_world[][WORLD_HEIGHT], int x, int y) {
     if (!get_moving() && old_world[x][y+1]->get_density() >= get_density())
         return;
 
     set_target_x(x);
-    set_target_y(y);    
+    set_target_y(y);
+
     if (old_world[x][y+1]->get_density() < get_density()) {
         // Falling because object below has lower density
         old_world[x][y-1]->set_moving(true);

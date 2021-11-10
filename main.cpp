@@ -15,12 +15,16 @@ using namespace std;
 
 
 int main() {
+    // Variables
     float brush_size = 1.0f;
-
+    const int wheel_sensitivity = 2;
+    const int min_brush_size = 1;
+    const int max_bruch_size = 25;
+    
+    // Intialize worlds
     Cell* this_world[WORLD_WIDTH][WORLD_HEIGHT];
     Cell* next_world[WORLD_WIDTH][WORLD_HEIGHT];
-    
-    //Intialize worlds
+
     for (int i = WORLD_WIDTH - 1; i >= 0; i--) {
         for (int j = WORLD_HEIGHT - 1; j >= 0; j--) {
             if (j >= WORLD_HEIGHT - BEDROCK_THICKNESS)
@@ -32,18 +36,22 @@ int main() {
             next_world[i][j] = this_world[i][j];                
         }
     }
-    // TODO: Why do i need to add these magic numbers?
-    InitWindow(WINDOW_WIDTH + 250, WINDOW_HEIGHT + 150, "Need name");
-    SetTargetFPS(500);
-    while (!WindowShouldClose()) {
-        Vector2 mouse_pos = GetMousePosition();
-        brush_size += GetMouseWheelMove() * 2;
 
-        if (brush_size < 1) 
-            brush_size = 1;
-        if (brush_size > 25) 
-            brush_size = 25;
+    // TODO: Why do i need to add these magic numbers?
+    InitWindow(WINDOW_WIDTH + 250, WINDOW_HEIGHT + 150, "Just Another SandSim");
+    SetTargetFPS(500);
+
+    // Main game loop
+    while (!WindowShouldClose()) {
         // Draw
+        Vector2 mouse_pos = GetMousePosition();
+        brush_size += GetMouseWheelMove() * wheel_sensitivity;
+
+        if (brush_size < min_brush_size) 
+            brush_size = min_brush_size;
+        if (brush_size > max_bruch_size) 
+            brush_size = max_bruch_size;
+
         if (IsMouseButtonDown(0) || IsMouseButtonDown(1)) {
             for (int i = 0; i < brush_size; i++) {
                 for (int j = 0; j < brush_size; j++) {
@@ -72,6 +80,7 @@ int main() {
             }
         }
 
+        // Update World: The reason for four different update directions is to even out what blocks get to move first. Without this the world update "lopsided"
         int itteration_direction = GetRandomValue(0,3);
         if (itteration_direction == 0) {
             // Update left to right, top to bottom

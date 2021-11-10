@@ -19,7 +19,6 @@ Air::Air()  {
     set_density(0);
 }
 
-void Air::update_cell_position(Cell* old_world[][WORLD_HEIGHT], Cell* new_world[][WORLD_HEIGHT], int x, int y) {
-}
+void Air::update_cell_position(Cell* old_world[][WORLD_HEIGHT], Cell* new_world[][WORLD_HEIGHT], int x, int y) {}
 
 #endif

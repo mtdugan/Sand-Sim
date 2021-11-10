@@ -22,7 +22,6 @@ Bedrock::Bedrock()  {
 
 void Bedrock::update_cell_position(Cell* old_world[][WORLD_HEIGHT], Cell* new_world[][WORLD_HEIGHT], int x, int y) {
     new_world[x][y] = old_world[x][y];
-    return;
 }
 
 #endif

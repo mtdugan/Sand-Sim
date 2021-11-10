@@ -46,19 +46,17 @@ class Cell {
         void set_moving(bool value);
         bool get_updated_this_frame();
         void set_updated_this_frame(bool value);
-
         virtual void update_cell_position(Cell* old_world[][WORLD_HEIGHT], Cell* new_world[][WORLD_HEIGHT], int x, int y);
-
         void draw_cell(int x, int y);
       private:
         int id;
         Color color;
         int width, height;
         int target_x, target_y;
-        int density;                // 0 - 100
+        int density;    // 0 - 100
         bool moving;
         bool updated_this_frame;
-                                                                    //SHOULD EVERy CELL HAVE AN X AND Y? SO THEN WE DONT NEED TO PASS IN INT X AND Y
+        // TODO: SHOULD EVERy CELL HAVE AN X AND Y? SO THEN WE DONT NEED TO PASS IN INT X AND Y
 
 };
 
@@ -71,72 +69,34 @@ Cell::Cell()  {
     set_updated_this_frame(true);  
 }
 
-int Cell::get_id() {
-    return id;
-}
-void Cell::set_id(int value) {
-    id = value;
-}
+int Cell::get_id() {return id;}
+void Cell::set_id(int value) {id = value;}
 
-Color Cell::get_color() {
-    return color;
-}
-void Cell::set_color(Color c) {
-    color = c;
-}
+Color Cell::get_color() {return color;}
+void Cell::set_color(Color c) {color = c;}
 
-int Cell::get_width() {
-    return width;
-}
-void Cell::set_width(int value) {
-    width = value;
-}
+int Cell::get_width() {return width;}
+void Cell::set_width(int value) {width = value;}
 
-int Cell::get_height() {
-    return height;
-}
-void Cell::set_height(int value) {
-    height = value;
-}
+int Cell::get_height() {return height;}
+void Cell::set_height(int value) {height = value;}
 
-int Cell::get_target_x() {
-    return target_x;
-}
-void Cell::set_target_x(int value) {
-    target_x = value;
-}
+int Cell::get_target_x() {return target_x;}
+void Cell::set_target_x(int value) {target_x = value;}
 
-int Cell::get_target_y() {
-    return target_y;
-}
-void Cell::set_target_y(int value) {
-    target_y = value;
-}
+int Cell::get_target_y() {return target_y;}
+void Cell::set_target_y(int value) {target_y = value;}
 
-int Cell::get_density() {
-    return density;
-}
-void Cell::set_density(int value) {
-    density = value;
-}
+int Cell::get_density() {return density;}
+void Cell::set_density(int value) {density = value;}
 
-bool Cell::get_moving() {
-    return moving;
-}
-void Cell::set_moving(bool value) {
-    moving = value;
-}
+bool Cell::get_moving() {return moving;}
+void Cell::set_moving(bool value) {moving = value;}
 
-bool Cell::get_updated_this_frame() {
-    return updated_this_frame;
-}
-void Cell::set_updated_this_frame(bool value) {
-    updated_this_frame = value;
-}
+bool Cell::get_updated_this_frame() {return updated_this_frame;}
+void Cell::set_updated_this_frame(bool value) {updated_this_frame = value;}
 
-void Cell::update_cell_position(Cell* old_world[][WORLD_HEIGHT], Cell* new_world[][WORLD_HEIGHT], int x, int y) {
-
-}
+void Cell::update_cell_position(Cell* old_world[][WORLD_HEIGHT], Cell* new_world[][WORLD_HEIGHT], int x, int y) {}
 
 void Cell::draw_cell(int x, int y) {
     DrawRectangle(x + x*CELL_WIDTH + 1, y + y*CELL_HEIGHT + 1, width, height,color);
