@@ -21,6 +21,6 @@ When testing the simulation with liquids of different densities, I saw a behavio
 [![Image from Gyazo](https://i.gyazo.com/0f2f51c6197dff07dd36ff73800916f3.gif)](https://gyazo.com/0f2f51c6197dff07dd36ff73800916f3)
 
 ## Wrapping up
-This README only showcases a few of the features this simulation offers. It has been a great way to strengthen my programming and design skills. Hopefully you find this small hobby project interesting, I sure have. I plan to explore multithreading and chunking the simulation to achieve better performance in the future. Thank you all for your time!
+This README only showcases a few of the features this simulation offers. It has been a great way to strengthen my programming and design skills. Hopefully you find this small hobby project interesting, I sure have. I plan to explore multithreading and chunking the simulation to achieve better performance in the future. Thank you all for your time! 
 
 [![Image from Gyazo](https://i.gyazo.com/921c50042b19151b311f954fba460236.gif)](https://gyazo.com/921c50042b19151b311f954fba460236)
