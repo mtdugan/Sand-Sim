@@ -20,6 +20,7 @@ Stone::Stone()  {
     set_density(50);
 }
 
+// Stone needs to stay static
 void Stone::update_cell_position(Cell* old_world[][WORLD_HEIGHT], Cell* new_world[][WORLD_HEIGHT], int x, int y) {}
 
 #endif
